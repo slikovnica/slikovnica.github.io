@@ -25,7 +25,7 @@ funBooksCtrl.controller('mainCtrl', [ '$rootScope', '$scope', function($rootScop
 	$scope.$watch('bookAudio.currentTime', function(newTime, oldTime) {
 		if($scope.selection === 5 ){
 			var timestamp = $scope.page.timestamp;
-			if(newTime > timestamp[timestamp.length-1]+5 ){
+			if(newTime > timestamp[timestamp.length-1]+1 ){
 				$scope.bookAudio.stop();
 			}
 		} else {
