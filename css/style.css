@@ -1,1 +1,106 @@
 .ui-match { background: yellow; }
+
+.animate-switch-container {
+  position:relative;
+  background:white;
+  height:500px;
+  width: 630px;
+  overflow:hidden;
+}
+ 
+.animate-flip-right {
+  padding:0px;
+}
+ 
+.animate-flip-right.ng-animate {
+	-moz-transform:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+	-o-transform:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+	-webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+	transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+
+	position:absolute;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+}
+
+.animate-flip-right.ng-enter,
+.animate-flip-right.ng-enter.ng-enter-active {
+	-moz-transform: rotateY(0deg);
+    -o-transform: rotateY(0deg);
+    -webkit-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+	
+	transform-origin:0% 0%;
+	-ms-transform-origin:0% 0%; 
+	-webkit-transform-origin:0% 0%;	
+	z-index: 1;
+}
+
+.animate-flip-right.ng-leave
+{
+  	-moz-transform: rotateY(0deg);
+    -o-transform: rotateY(0deg);
+    -webkit-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+	
+	transform-origin:0% 0%;
+	-ms-transform-origin:0% 0%; 
+	-webkit-transform-origin:0% 0%;
+	z-index: 2;
+}
+
+.animate-flip-right.ng-leave.ng-leave-active {
+	-moz-transform: rotateY(90deg);
+    -o-transform: rotateY(90deg);
+    -webkit-transform: rotateY(90deg);
+    transform: rotateY(90deg);
+	
+	transform-origin:0% 0%;
+	-ms-transform-origin:0% 0%; 
+	-webkit-transform-origin:0% 0%;
+	z-index: 2;
+}
+
+
+.animate-flip-left {
+	padding:0px;
+}
+
+.animate-flip-left.ng-animate {
+	-moz-transform:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 3s;
+	-o-transform:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 3s;
+	-webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 3s;
+	transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 3s;
+
+	position:absolute;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+}
+ 
+.animate-flip-left.ng-leave.ng-leave-active,
+.animate-flip-left.ng-enter {
+  	-moz-transform: rotateY(0deg);
+    -o-transform: rotateY(0deg);
+    -webkit-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+
+	transform-origin:0% 0%;
+	-ms-transform-origin:0% 0%; 
+	-webkit-transform-origin:0% 0%;
+}
+
+.animate-flip-left.ng-leave,
+.animate-flip-left.ng-enter.ng-enter-active {
+  	-moz-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+	
+	transform-origin:-50% 0%;
+	-ms-transform-origin:-50% 0%; 
+	-webkit-transform-origin:-50% 0%;
+}

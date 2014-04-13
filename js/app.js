@@ -6,6 +6,7 @@ var funBooksApp = angular.module('funBooksApp', [
 	'funBooksDir',
 	'funBooksFil',
 	'ui.utils',
-	'mediaPlayer'
+	'mediaPlayer',
+	'ngAnimate'
 	]);
 
