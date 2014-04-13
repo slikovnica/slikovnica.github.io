@@ -7,7 +7,7 @@ funBooksFil.filter('highlightIndex', function () {
   	if(angular.isNumber(index)){
   		text = text.toString();	
   		var nth = 0;
-  		return text.replace(/\w+/g, function(match, offset) {
+  		return text.replace(/[^\u0000-\u007F]+/g, function(match, offset) {
   			nth++;
   			if( nth === index) {
   				return '<span class="ui-match">' + match + '</span>';

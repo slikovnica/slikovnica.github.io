@@ -1,5 +1,7 @@
 .ui-match { background: yellow; }
 
+.fancytext { font-family: 'Comfortaa', cursive; margin: 4em; }
+
 .animate-switch-container {
   position:relative;
   background:white;

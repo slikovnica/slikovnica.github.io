@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="css/page-flip.css">
     <link rel="stylesheet" href="css/animate.css">
     
+    <link href='http://fonts.googleapis.com/css?family=Lobster|Comfortaa:400,700,300&subset=latin,cyrillic,cyrillic-ext,latin-ext' rel='stylesheet' type='text/css'>
 
     <!-- JS -->
     <script src="lib/angular/angular.js"></script>
@@ -43,29 +44,39 @@
 
 <body>
 
-    <select ng-model="selection" ng-options="item for item in items">
-    </select>
-    <tt>selection={{selection}}</tt>
-    <hr/>
+    <div class="pure-g">
+        <div class="pure-u-1-2">
+            <audio media-player="bookAudio" playlist="playlist1">
+                <source src="audio/audio.mp3" type="audio/mp3">
+            </audio>
+            <button class="pure-button pure-button-primary" ng-click="bookAudio.play()">Play</button>  
+        </div>
+        <div class="pure-u-1-2">
+            <select ng-model="selection" ng-options="item for item in items">
+            </select>
+            <tt>selection={{selection}}</tt>
+            <hr/>            
+        </div>
+    </div>
 
 
     <div class="pure-g">
         <div class="pure-u-1-2">
             <div ng-switch on="selection">
                 <div ng-switch-when="1">
-                    {{ page.text }}
+                    <p class="fancytext" ng-bind-html="page.text | highlightIndex:wordIndex"></p>
                 </div>
                 <div ng-switch-when="2">
-                    {{ page.text }}
+                    <p class="fancytext" ng-bind-html="page.text | highlightIndex:wordIndex"></p>
                 </div>
                 <div ng-switch-when="3">
-                    {{ page.text }}
+                    <p class="fancytext" ng-bind-html="page.text | highlightIndex:wordIndex"></p>
                 </div>
                 <div ng-switch-when="4">
-                    {{ page.text }}
+                    <p class="fancytext" ng-bind-html="page.text | highlightIndex:wordIndex"></p>
                 </div>
                 <div ng-switch-when="5">
-                    {{ page.text }}
+                    <p class="fancytext" ng-bind-html="page.text | highlightIndex:wordIndex"></p>
                 </div>
             </div>
         </div>
@@ -90,13 +101,6 @@
         </div>
     </div>
 
-    <div class="pure-g">
-        <div class="pure-u">
-            <audio media-player="bookAudio" playlist="playlist1">
-                <source src="audio/audio.mp3" type="audio/mp3">
-            </audio>
-            <button class="pure-button" ng-click="bookAudio.play()">Play</button>  
-        </div>
-    </div>
+    
 </body>
 </html>
