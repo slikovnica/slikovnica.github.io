@@ -233,7 +233,7 @@ angular.module('mediaPlayer', ['mediaPlayer.helpers'])
             });
           }
         },
-        timeupdate: throttle(200, false, function () {
+        timeupdate: throttle(100, false, function () {
           au.$apply(function (scope) {
             scope.currentTime = al.currentTime;
             scope.formatTime = scope.$formatTime(scope.currentTime);

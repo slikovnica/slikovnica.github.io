@@ -23,15 +23,16 @@ funBooksCtrl.controller('mainCtrl', [ '$rootScope', '$scope', function($rootScop
 	$scope.wordIndex = 1;
 
 	$scope.$watch('bookAudio.currentTime', function(newTime, oldTime) {
-		if($scope.selection === 6 ){
-			$scope.bookAudio.stop();
+		if($scope.selection === 5 ){
+			var timestamp = $scope.page.timestamp;
+			if(newTime > timestamp[timestamp.length-1]+5 ){
+				$scope.bookAudio.stop();
+			}
 		} else {
-			if($scope.selection !== 5){
-				if(newTime > $scope.pages[$scope.selection].timestamp[0]){
-					$scope.selection++;
-					$scope.page = $scope.pages[$scope.selection - 1];
-					$scope.wordIndex = 1;
-				}
+			if(newTime > $scope.pages[$scope.selection].timestamp[0]){
+				$scope.selection++;
+				$scope.page = $scope.pages[$scope.selection - 1];
+				$scope.wordIndex = 1;
 			}
 		}
 		while(newTime > $scope.page.timestamp[$scope.wordIndex]){
