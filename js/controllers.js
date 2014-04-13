@@ -3,7 +3,6 @@
 var funBooksCtrl = angular.module('funBooksCtrl', ['ngSanitize']);
 
 funBooksCtrl.controller('mainCtrl', [ '$rootScope', '$scope', function($rootScope, $scope) {
-	$scope.items = [1, 2, 3, 4, 5];
 	$scope.pages = [
 		{text:"Градот убав пак ќе никне, среде песни в дружен фат, пак ко сонце цел ќе бликне, како топол нежен кат.",
 		timestamp:[5.506,6.026,7.586,7.919,8.150,9.530,10.169,11.196,11.298,12.290,14.214,15.023,15.281,15.580,15.777,16.219,18.313,19.346,20.407,20.529]},
@@ -17,20 +16,26 @@ funBooksCtrl.controller('mainCtrl', [ '$rootScope', '$scope', function($rootScop
 		timestamp:[77.221,78.255,78.880,79.150,79.397,81.463,82.388,82.714,82.900,83.400,85.433,86.249,86.480,87.173,87.309,87.527,89.512,90.287,90.599,91.116,91.524]}
 	];
 
-	$scope.selection = $scope.items[0];	
+	$scope.selection = 1;	
 
 	$scope.page = $scope.pages[$scope.selection-1];
 
-	$scope.$watch('selection', function(newSelection, oldSelection) {
-		$scope.page = $scope.pages[newSelection-1];
-	});
-
 	$scope.wordIndex = 1;
+
 	$scope.$watch('bookAudio.currentTime', function(newTime, oldTime) {
-		
+		if($scope.selection === 6 ){
+			$scope.bookAudio.stop();
+		} else {
+			if($scope.selection !== 5){
+				if(newTime > $scope.pages[$scope.selection].timestamp[0]){
+					$scope.selection++;
+					$scope.page = $scope.pages[$scope.selection - 1];
+					$scope.wordIndex = 1;
+				}
+			}
+		}
 		while(newTime > $scope.page.timestamp[$scope.wordIndex]){
 			$scope.wordIndex++;
-			console.log($scope.wordIndex);
 		}
 	});
 
